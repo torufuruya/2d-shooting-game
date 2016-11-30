@@ -25,9 +25,4 @@ public class Enemy : MonoBehaviour {
 			yield return new WaitForSeconds (spaceship.shotDelay);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
