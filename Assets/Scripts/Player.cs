@@ -48,6 +48,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (layerName == "Bullet (Enemy)" || layerName == "Enemy") {
+			FindObjectOfType<Manager> ().GameOver ();
 			// 爆発
 			spaceship.Explosion ();
 			// プレイヤーを削除
