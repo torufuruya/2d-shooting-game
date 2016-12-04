@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour {
 		spaceship = GetComponent<Spaceship> ();	
 
 		// ローカル座標のY軸のマイナス方向に移動する
-		spaceship.Move (transform.up * -1);
+		Move (transform.up * -1);
 
 		if (spaceship.canShot == false) {
 			yield break;
@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviour {
 			}
 			yield return new WaitForSeconds (spaceship.shotDelay);
 		}
+	}
+
+	public void Move (Vector2 direction) {
+		GetComponent<Rigidbody2D>().velocity = direction * spaceship.speed;
 	}
 
 	void OnTriggerEnter2D (Collider2D c) {
