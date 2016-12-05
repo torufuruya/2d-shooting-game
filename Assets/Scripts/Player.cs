@@ -5,9 +5,13 @@ public class Player : MonoBehaviour {
 
 	Spaceship spaceship;
 
+	Background background;
+
 	// Use this for initialization
 	IEnumerator Start () {
 		spaceship = GetComponent<Spaceship> ();
+
+		background = FindObjectOfType<Background> ();
 
 		while (true) {
 			spaceship.Shot (transform);
@@ -27,8 +31,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void Move (Vector2 direction) {
-		Vector2 min = Camera.main.ViewportToWorldPoint (new Vector2 (0, 0));
-		Vector2 max = Camera.main.ViewportToWorldPoint (new Vector2 (1, 1));
+		Vector2 scale = background.transform.localScale;
+
+		Vector2 min = scale * -0.5f;
+		Vector2 max = scale * 0.5f;
 		Vector2 pos = transform.position;
 
 		// 移動量を加える
