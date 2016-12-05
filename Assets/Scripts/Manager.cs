@@ -13,9 +13,8 @@ public class Manager : MonoBehaviour {
 		title = GameObject.Find ("Title");
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (IsPlaying () == false && Input.GetKeyDown (KeyCode.X)) {
+	void OnGUI () {
+		if (IsPlaying () == false && Event.current.type == EventType.MouseDown) {
 			GameStart ();
 		}
 	}
