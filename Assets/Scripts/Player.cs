@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour {
 
@@ -22,8 +23,8 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float x = Input.GetAxisRaw ("Horizontal");
-		float y = Input.GetAxisRaw ("Vertical");
+		float x = CrossPlatformInputManager.GetAxisRaw ("Horizontal");
+		float y = CrossPlatformInputManager.GetAxisRaw ("Vertical");
 
 		Vector2 direction = new Vector2 (x, y).normalized;
 
